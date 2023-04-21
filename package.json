@@ -1,0 +1,35 @@
+{
+    "version": "0.0.1",
+    "license": "MIT",
+    "name": "@k5map/myq",
+    "description": "Node-Red node to control MyQ (Chamberlain) devices",
+    "homepage": "https://github.com/k5map/myq",
+    "author": {
+        "name": "Mike Pate",
+        "email": "k5map@arrl.net"
+    },
+    "bugs": {
+        "url": "https://github.com/k5map/myq/issues"
+    },
+    "node-red": {
+        "nodes": {
+            "myq": "myq.js",
+            "myq-credentials": "myq-credentials.js"
+        }
+    },
+    "dependencies": {
+        "@hjdhjd/myq": "6.0.9"
+    },
+    "devDependencies": {
+        "node-red-node-test-helper": "^0.3.0"
+    },
+    "keywords": [
+        "myq",
+        "chamberlain",
+        "liftmaster"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/k5map/myq.git"
+    }
+}

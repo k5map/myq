@@ -1,0 +1,69 @@
+<script type="text/javascript">
+    RED.nodes.registerType('myq-device-node', {
+        category: 'function',
+        color: '#3FADB5',
+        defaults: {
+            user: { value: "", type: "myq-credentials" },
+            name: { value: "", required: true },
+            serialnumber: { value: "" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "myq.png",
+        label: function () {
+            return this.name || "myq-device-node";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="myq-device-node">
+    <div class="form-row">
+        <label for="node-input-user"><i class="fa fa-user"></i> Credentials</label>
+        <input type="text" id="node-input-user" placeholder="Credentials">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-serialnumber"><i class="fa fa-barcode"></i> Serial number</label>
+        <input type="text" id="node-input-serialnumber" placeholder="Serial number">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="myq-device-node">
+    <p>Node representing one MyQ device (door, light or lamp)</p>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt class="optional">payload
+            <span class="property-type">string</span>
+        </dt>
+        <dd> Action to perform on device. Supported actions for doors <code>open</code> and <code>close</code>, for lights <code>on</code> and <code>off</code>, for lamps <code>lamp_on</code> and <code>lamp_off</code>. Any other content or no payload at all will trigger retrieval of status information </dd>
+    </dl>
+
+    <h3>Outputs</h3>
+     <ol class="node-ports">
+         <li>Status output
+             <dl class="message-properties">
+                 <dt>payload <span class="property-type">object</span></dt>
+                 <dd>Returns extended status information about device in payload.device</dd>
+             </dl>
+         </li>
+         <li>Action output
+            <dl class="message-properties">
+                <dt>payload <span class="property-type">object</span></dt>
+                <dd>Confirmation of succussful action execution</dd>
+            </dl>
+        </li>
+         <li>Standard error
+             <dl class="message-properties">
+                 <dt>payload <span class="property-type">string</span></dt>
+                 <dd>the standard error of the command.</dd>
+             </dl>
+         </li>
+     </ol>
+
+   <h3>Details</h3>
+   <p>Node to control MyQ device (door, light or lamp). Requires serial number or name of device and credentials for MyQ app.</p>
+</script>
