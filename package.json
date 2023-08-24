@@ -12,6 +12,7 @@
         "url": "https://github.com/k5map/myq/issues"
     },
     "node-red": {
+        "version": ">=3.0.0",
         "nodes": {
             "myq": "myq.js",
             "myq-credentials": "myq-credentials.js"

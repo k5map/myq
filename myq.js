@@ -46,6 +46,10 @@ module.exports = function (RED) {
                             this.status({ fill: "red", shape: "dot", text: result.state.door_state || result.state.light_state || result.state.lamp_state });
                         } else if (result.state.door_state === 'closed' || result.state.light_state === 'off' || result.device.state.lamp_state === 'off') {
                             this.status({ fill: "green", shape: "dot", text: result.state.door_state || result.state.light_state || result.state.lamp_state });
+                        } else if (result.state.door_state === 'opening' || result.state.door_state === 'closing') {
+                            this.status({ fill: "yellow", shape: "dot", text: result.state.door_state });
+                        } else if (result.state.door_state === 'stopped') {
+                            this.status({ fill: "red", shape: "dot", text: result.state.door_state });
                         }
                     }
                     msg.payload = result;
